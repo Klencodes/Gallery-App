@@ -9,13 +9,15 @@ import { MainfeedComponent } from './components/mainfeed/mainfeed.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './services/jwt.interceptor';
+import { HeaderNavComponent } from './components/header-nav/header-nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignupComponent,
-    MainfeedComponent
+    MainfeedComponent,
+    HeaderNavComponent
   ],
   imports: [
     BrowserModule,

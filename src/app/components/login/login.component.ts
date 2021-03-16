@@ -12,6 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   submitted: Boolean =false;
+  loading: Boolean =false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -38,19 +39,23 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
+    this.loading = true;
     this.authService.login(this.f.email.value, this.f.password.value).pipe(first())
     .subscribe({
         next: () => {
-            // get return url from query parameters or default to home page
-            const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-            this.router.navigateByUrl(returnUrl);
+          // get return url from query parameters or default to home page
+          const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+          this.router.navigateByUrl(returnUrl);
+          // this.toastr.success('Login successful!', 'Successful')
         },
         error: error => {
-           console.log(error)
+          console.log(error)
+            // this.toastr.error(error);
+            this.loading = false;
         }
     });
   }
 
-      // convenience getter for easy access to form fields
-      get f() { return this.loginForm.controls; }
+  // convenience getter for easy access to form fields
+  get f() { return this.loginForm.controls; }
 }

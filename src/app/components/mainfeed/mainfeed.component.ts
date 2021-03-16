@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { MainfeedService } from 'src/app/services/mainfeed.service';
 
 @Component({
   selector: 'app-mainfeed',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainfeedComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private feedServices: MainfeedService,
+    private authService: AuthService
+    ) { }
 
   ngOnInit(): void {
+    this.getAllFeeds();
+  }
+
+  getAllFeeds(){
+    this.authService.getAllFeeds().subscribe((res) =>{
+      console.log(res)
+    })
   }
 
 }

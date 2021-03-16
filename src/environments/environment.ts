@@ -7,13 +7,13 @@ export const environment = {
 
   BASE_URL : 'https://pentiumtech-api.herokuapp.com/api/v1.0/',
 
-  SIGNUP: 'users/signup',
+  SIGNUP: 'users/signup/',
 
-  LOGIN: 'users/login',
+  LOGIN: 'users/login/',
 
-  LOGOUT: 'users/logut',
+  LOGOUT: 'users/logout/',
   
-  MAINFEED: 'mainfeed'
+  MAINFEEDS: 'mainfeed/'
 };
 
 /*

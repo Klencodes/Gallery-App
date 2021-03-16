@@ -13,6 +13,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
   submitted: Boolean = false;
+  loading: Boolean = false;
 
 
   constructor(
@@ -46,11 +47,22 @@ export class SignupComponent implements OnInit {
      this.signup();
  }
  signup(){
-     this.authService.signup(this.signupForm.value)
-    //  console.log(this.signupForm.value)
-    .pipe(first())
-         .subscribe((res: any) => {
-           console.log(res)
-         })
+   this.loading = true;
+     this.authService.signup(this.signupForm.value).pipe(first())
+     .subscribe({
+      next: () => {
+          this.loading = false;
+          // this.toastr.success('Registration successful, please login', 'Successful');
+          setTimeout(()=>{
+              this.router.navigate(['/login']),
+              3000
+          })
+      },
+      error: error => {
+         console.log(error)
+          // this.toastr.error(error);
+          this.loading = false;
+      }
+  });
  }
 }

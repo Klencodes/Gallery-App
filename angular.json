@@ -29,11 +29,12 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/assets/bootstrap.css"
+              "src/assets/bootstrap.css",
+              "src/assets/font-awesome/css/font-awesome.css"
             ],
             "scripts": [
-              "src/assets/jquery.js",
-              "src/assets/bootstrap.js"
+              "src/assets/jquery.min.js",
+              "src/assets/bootstrap.min.js"
             ]
           },
           "configurations": {

@@ -1,38 +1,36 @@
-<div id="login">
-    <h3 class="text-center text-white pt-5">Login form</h3>
-    <div class="container">
-        <div id="login-row" class="row justify-content-center align-items-center">
-            <div id="login-column" class="col-md-6">
-                <div id="login-box" class="col-md-12">
-                    <form id="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-                        <h3 class="text-center text-info">Login</h3>
-                        <div class="form-group">
-                            <label  class="text-info">Email:</label><br>
-                            <input class="form-control" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
-                            <div *ngIf="submitted && f.email.errors">
+<div class="centered-content">
+    <div class="card m-2" style="max-width:650px; margin-top:40px;">
+          <article class="card-body">
+            <header class="mb-4"><h4 class="card-title">Login</h4></header>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <div class="row">
+                       <div class="col md-12">
+                            <label>Email</label>
+                            <input type="email" class="form-control" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                            <div class="text-danger"  *ngIf="submitted && f.email.errors">
                                 <div *ngIf="f.email.errors.required">Email is required</div>
-                                <div *ngIf="f.email.errors.email">Email is invalid</div>
+                                <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="text-info">Password:</label><br>
-                            <input type="password"  formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" class="form-control">
-                            <div *ngIf="submitted && f.password.errors">
+                    
+                        <div class="col-md-12 mt-2">
+                            <label>Password</label>
+                              <input type="password" class="form-control" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                              <div class="text-danger"  *ngIf="submitted && f.password.errors">
                                 <div *ngIf="f.password.errors.required">Password is required</div>
                             </div>
-                        </div>
-                        <div class="pull-left">
-                            <button type="submit" class="btn btn-primary">Login</button>
-                            <span class="pull-right">
-                                <a routerLink="/signup" class="text-info">Register here</a>
-                            </span>
-                        </div>
-                        <div id="register-link" class="text-right">
-                            
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+                        </div> <!-- form-group end.// -->   
+                    </div>
+                    <div class="form-group mt-3">
+                        <button type="submit"  [disabled]="loading" class="btn btn-primary btn-block">
+                            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                            Login  
+                        </button>
+                    </div>     
+                </form>
+            </article><!-- card-body.// -->
+            <p class="text-center ">Don't have an account? <a routerLink="/signup"><b>Signup</b></a></p>
+
+        </div> <!-- card .// -->
+    <!-- ============================ COMPONENT REGISTER  END.// ================================= -->
     </div>
-</div>

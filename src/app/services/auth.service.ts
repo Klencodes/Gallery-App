@@ -33,6 +33,7 @@ export class AuthService {
           .pipe(map(user => {
               this.userSubject.next(user);
               // this.startRefreshTokenTimer();
+              console.log(user, 'USER')
               return user;
           }));
   }
@@ -40,25 +41,23 @@ export class AuthService {
   logout() {
     let url = environment.BASE_URL+environment.LOGOUT;
     this.http.post<any>(url, {}, { withCredentials: true }).subscribe();
-      // this.stopRefreshTokenTimer();
       this.userSubject.next(null);
-      this.router.navigate(['/']);
+      this.router.navigate(['/login']);
   }
 
-  // refreshToken() {
-  //     let url = ACCOUNTS_ENDPOINT+environment.ACCOUNTS.REFRESH_TOKEN
-  //     return this.http.post<any>(url, {}, { withCredentials: true })
-  //         .pipe(map((account) => {
-  //             this.accountSubject.next(account);
-  //             this.startRefreshTokenTimer();
-  //             return account;
-  //         }));
-  // }
 
   signup(user: User) {
     let url = environment.BASE_URL+environment.SIGNUP;
     return this.http.post(url, user);
   }
 
+  getAllFeeds(){
+    let url = environment.BASE_URL+environment.MAINFEEDS;
+    return this.http.get(url, { withCredentials: true })
+    .pipe(map(res => {
+      // this.startRefreshTokenTimer();
+      return res;
+    })
+    )}
 
 }
