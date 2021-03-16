@@ -29,11 +29,10 @@ export class AuthService {
 
   login(email: string, password: string) {
       let url = environment.BASE_URL+environment.LOGIN;
-      return this.http.post<any>(url, { email, password }, { withCredentials: true })
+      return this.http.post<any>(url, { email, password }, { withCredentials: true }, )
           .pipe(map(user => {
               this.userSubject.next(user);
               // this.startRefreshTokenTimer();
-              console.log(user, 'USER')
               return user;
           }));
   }
@@ -53,9 +52,8 @@ export class AuthService {
 
   getAllFeeds(){
     let url = environment.BASE_URL+environment.MAINFEEDS;
-    return this.http.get(url, { withCredentials: true })
+    return this.http.get(url, { withCredentials: true },)
     .pipe(map(res => {
-      // this.startRefreshTokenTimer();
       return res;
     })
     )}
