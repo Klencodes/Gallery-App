@@ -1,0 +1,56 @@
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { first } from 'rxjs/operators';
+import { MustMatch } from 'src/app/models/must-match';
+import { AuthService } from 'src/app/services/auth.service';
+
+@Component({
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.scss']
+})
+export class SignupComponent implements OnInit {
+  signupForm: FormGroup;
+  submitted: Boolean = false;
+
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+    private authService: AuthService,
+  ) { }
+
+  ngOnInit(): void {
+    this.signupForm = this.formBuilder.group({
+      password: ['', Validators.required],
+      confirmPassword: ['', Validators.required],
+      first_name: ['', Validators.required],
+      last_name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      phone_number: ['', Validators.required],
+  },  {
+    validator: MustMatch('password', 'confirmPassword')
+  });
+}
+
+ // convenience getter for easy access to form fields
+ get f() { return this.signupForm.controls; }
+
+ onSubmit() {
+     this.submitted = true;
+     if (this.signupForm.invalid) {
+         return;
+     }
+     this.signup();
+ }
+ signup(){
+     this.authService.signup(this.signupForm.value)
+    //  console.log(this.signupForm.value)
+    .pipe(first())
+         .subscribe((res: any) => {
+           console.log(res)
+         })
+ }
+}

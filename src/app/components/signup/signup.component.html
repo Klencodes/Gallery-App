@@ -1,0 +1,137 @@
+<section class="section-content padding-y">
+
+    <!-- ============================ COMPONENT REGISTER   ================================= -->
+        <div class="card mx-auto" style="max-width:520px; margin-top:40px;">
+          <article class="card-body">
+            <header class="mb-4"><h4 class="card-title">Sign up</h4></header>
+            <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+                    <div class="form-row">
+                        <div class="col form-group">
+                            <label>First name</label>
+                            <input class="form-control" formControlName="first_name" [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }">
+                            <div class="text-danger"  *ngIf="submitted && f.first_name.errors">
+                                <div *ngIf="f.first_name.errors.required">First Name is required</div>
+                                <!-- <div *ngIf="f.first_name.errors.minlength">First Name must be at least 3 characters</div> -->
+                            </div>                        </div> <!-- form-group end.// -->
+                        <div class="col form-group">
+                            <label>Last name</label>
+                            <input class="form-control" formControlName="last_name" [ngClass]="{ 'is-invalid': submitted && f.last_name.errors }">
+                            <div class="text-danger"  *ngIf="submitted && f.last_name.errors">
+                                <div *ngIf="f.last_name.errors.required">Last Name is required</div>
+                                <!-- <div *ngIf="f.last_name.errors.minlength">First Name must be at least 3 characters</div> -->
+                            </div>                        </div> <!-- form-group end.// -->
+                       
+                    </div> <!-- form-row end.// -->
+                    <div class="form-row">
+                       <div class="col form-form">
+                        <label>Email</label>
+                        <input type="email" class="form-control" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                        <div class="text-danger"  *ngIf="submitted && f.email.errors">
+                            <div *ngIf="f.email.errors.required">Email is required</div>
+                            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                        </div>
+                       </div>
+
+                        <div class="col form-group">
+                            <label>Phone Number</label>
+                              <input type="text" class="form-control" formControlName="phone_number" [ngClass]="{ 'is-invalid': submitted && f.phone_number.errors }">
+                              <div class="text-danger"  *ngIf="submitted && f.phone_number.errors">
+                                  <div *ngIf="f.phone_number.errors.required">Phone Number is required</div>
+                              </div>
+                        </div> <!-- form-group end.// -->
+                    </div> <!-- form-group end.// -->
+                    <div class="form-row">
+                        <div class="col form-group">
+                            <label>Password</label>
+                              <input type="password" class="form-control" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                              <div class="text-danger"  *ngIf="submitted && f.password.errors">
+                                <div *ngIf="f.password.errors.required">Password is required</div>
+                            </div>
+                        </div> <!-- form-group end.// -->
+                        <div class="col form-group">
+                            <label>Confirm Password</label>
+                            <input type="confirmPassword" class="form-control" formControlName="confirmPassword" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }">
+                            <div class="text-danger"  *ngIf="submitted && f.confirmPassword.errors">
+                                <div *ngIf="submitted && f.confirmPassword.errors">
+                                    <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                                    <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                                </div>                            
+                            </div>
+                        </div> <!-- form-group end.// -->
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block"> Register  </button>
+                    </div> <!-- form-group// -->      
+                         
+                </form>
+            </article><!-- card-body.// -->
+        </div> <!-- card .// -->
+        <p class="text-center mt-4">Have an account? <a routerLink="/">Log In</a></p>
+        <br><br>
+    <!-- ============================ COMPONENT REGISTER  END.// ================================= -->
+    
+    
+    </section>
+
+
+<div id="login">
+    <h3 class="text-center text-white pt-5">Signup form</h3>
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-6">
+                <div id="login-box" class="col-md-12">
+                    <form id="login-form" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+                        <h3 class="text-center text-info">Signup</h3>
+                        <div class="form-group">
+                            <label  class="text-info">First Name:</label><br>
+                            <input class="form-control" formControlName="first_name" [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }">
+                            <div class="text-danger"  *ngIf="submitted && f.first_name.errors">
+                                <div *ngIf="f.first_name.errors.required">First Name is required</div>
+                                <!-- <div *ngIf="f.first_name.errors.minlength">First Name must be at least 3 characters</div> -->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="text-info">Last Name:</label><br>
+                            <input class="form-control" formControlName="last_name" [ngClass]="{ 'is-invalid': submitted && f.last_name.errors }">
+                            <div class="text-danger"  *ngIf="submitted && f.last_name.errors">
+                                <div *ngIf="f.last_name.errors.required">Last Name is required</div>
+                                <!-- <div *ngIf="f.last_name.errors.minlength">First Name must be at least 3 characters</div> -->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="text-info">Email:</label><br>
+                            <input class="form-control" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                            <div class="text-danger"  *ngIf="submitted && f.email.errors">
+                                <div *ngIf="f.email.errors.required">Email is required</div>
+                                <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="text-info">Phone Number:</label><br>
+                            <input class="form-control" formControlName="phone_number" [ngClass]="{ 'is-invalid': submitted && f.phone_number.errors }">
+                            <div class="text-danger"  *ngIf="submitted && f.phone_number.errors">
+                                <div *ngIf="f.phone_number.errors.required">Phone Number is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="text-info">Password:</label><br>
+                            <input type="password" class="form-control" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                            <div class="text-danger"  *ngIf="submitted && f.password.errors">
+                                <div *ngIf="f.password.errors.required">Password is required</div>
+                                <!-- <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div> -->
+                            </div>
+                        </div>
+                        <div class="pull-left">
+                            <button type="submit" class="btn btn-primary" >Signup</button>
+                            
+                        </div>
+                        <span class="text-right mt-3">
+                            Already have an account
+                            <a routerLink="/" class="text-info"><b>Login</b></a>
+                        </span>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

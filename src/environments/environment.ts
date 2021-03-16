@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+  BASE_URL : 'https://pentiumtech-api.herokuapp.com/api/v1.0/',
+
+  SIGNUP: 'users/signup',
+
+  LOGIN: 'users/login',
+
+  LOGOUT: 'users/logut',
+  
+  MAINFEED: 'mainfeed'
 };
 
 /*
