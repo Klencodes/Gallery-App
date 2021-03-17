@@ -8,21 +8,30 @@
                 </div>
             </div>
             <div class="col-md-3 col-sm-6" *ngFor="let image of images">
-                <div class="product-grid4" >
+                <div class="product-grid4">
                     <div class="product-image4">
-                            <img class="pic-1" [src]="image.image">
+                        <img class="pic-1" [src]="image.image">
 
-                        <span class="product-new-label">Shares {{image.num_of_shares}}</span>
-                        <span class="product-discount-label">Likes {{image.num_of_likes}}</span>
+                        <!-- <span class="product-new-label">Shares {{image.num_of_shares}}</span>
+                        <span class="product-discount-label">Likes {{image.num_of_likes}}</span> -->
                     </div>
                     <div class="product-content mb-3">
-                        <div class="title">Title: {{image.title |  slice:0:15 | lowercase}}</div>
-                        <div class="price">Comments {{image.num_of_comments}}</div>
+                        <div class="title">Title: {{image.title | slice:0:15 | lowercase}}</div>
+                        <!-- <div class="price">Comments {{image.num_of_comments}}</div> -->
+                        <div class="d-flex flex-row justify-content-center">
+                            <div class="like p-2 cursor"><span class="ml-1"><b>{{image.num_of_likes}}</b>
+                                    Likes</span></div>
+                            <div class="like p-2 cursor"><span class="ml-1"><b>{{image.num_of_comments}}</b>
+                                    Comments</span></div>
+                            <div class="like p-2 cursor"><span class="ml-1"><b>{{image.num_of_shares}}</b>
+                                    Shares</span></div>
+                        </div>
+                    
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>  
+</section>
 
 <footer-nav class="mb-4"></footer-nav>

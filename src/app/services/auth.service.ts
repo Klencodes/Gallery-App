@@ -29,14 +29,11 @@ export class AuthService {
 
   login(email: string, password: string) {
     let url = environment.BASE_URL + environment.LOGIN;
-    return this.http
-      .post<any>(url, { email, password }, { withCredentials: true })
-      .pipe(
-        map((user) => {
+    return this.http.post<any>(url, { email, password }, { withCredentials: true })
+      .pipe(map((user) => {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
           localStorage.setItem('currentUser', JSON.stringify(user));
           this.userSubject.next(user);
-          // this.startRefreshTokenTimer();
           return user;
         })
       );
