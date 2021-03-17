@@ -12,6 +12,8 @@ import { JwtInterceptor } from './services/jwt.interceptor';
 import { HeaderNavComponent } from './components/header-nav/header-nav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 @NgModule({
@@ -27,6 +29,7 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     ToastrModule.forRoot( 
       ({  timeOut: 3000,

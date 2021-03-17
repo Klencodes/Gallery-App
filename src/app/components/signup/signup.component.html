@@ -1,77 +1,77 @@
-
-    <!-- ============================ COMPONENT REGISTER   ================================= -->
-    <div class="centered-content">
-        <div class="card m-2" >
-            <div class="card-body full-width">
-              <header class="mb-4"><h4 class="card-title">Sign up</h4></header>
-              <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-                      <div class="row">
-                            <div class="col-md-6">
-                              <label>First name</label>
-                              <input class="form-control" formControlName="first_name" [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }">
-                              <div class="text-danger"  *ngIf="submitted && f.first_name.errors">
-                                  <div *ngIf="f.first_name.errors.required">First Name is required</div>
-                                  <!-- <div *ngIf="f.first_name.errors.minlength">First Name must be at least 3 characters</div> -->
-                              </div>                       
-                            </div> <!-- form-group end.// -->
-                            <div class="col-md-6">
-                              <label>Last name</label>
-                              <input class="form-control" formControlName="last_name" [ngClass]="{ 'is-invalid': submitted && f.last_name.errors }">
-                              <div class="text-danger"  *ngIf="submitted && f.last_name.errors">
-                                  <div *ngIf="f.last_name.errors.required">Last Name is required</div>
-                                  <!-- <div *ngIf="f.last_name.errors.minlength">First Name must be at least 3 characters</div> -->
-                              </div>                        
-                            </div> <!-- form-group end.// -->
-                         
-                      </div> <!-- form-row end.// -->
-                      <div class="row">
-                         <div class="col-md-6">
-                          <label>Email</label>
-                          <input type="email" class="form-control" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
-                          <div class="text-danger"  *ngIf="submitted && f.email.errors">
-                              <div *ngIf="f.email.errors.required">Email is required</div>
-                              <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+    <div class="auth-bg">
+        <div class="box" style="width: 40rem;">
+            <h2>Signup</h2>
+            <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="inputBox">
+                            <input placeholder="First Name" formControlName="first_name" [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }">
+                            <div class="text-danger"  *ngIf="submitted && f.first_name.errors">
+                                <div *ngIf="f.first_name.errors.required">First Name is required</div>
+                                <!-- <div *ngIf="f.first_name.errors.minlength">First Name must be at least 3 characters</div> -->
+                            </div>        
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="inputBox">
+                            <input placeholder="Last Name" formControlName="last_name" [ngClass]="{ 'is-invalid': submitted && f.last_name.errors }">
+                            <div class="text-danger"  *ngIf="submitted && f.last_name.errors">
+                                <div *ngIf="f.last_name.errors.required">Last Name is required</div>
+                                <!-- <div *ngIf="f.last_name.errors.minlength">First Name must be at least 3 characters</div> -->
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="inputBox">
+                            <input placeholder="Email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                            <div class="text-danger"  *ngIf="submitted && f.email.errors">
+                                <div *ngIf="f.email.errors.required">Email is required</div>
+                                <!-- <div *ngIf="f.email.errors.minlength">First Name must be at least 3 characters</div> -->
+                            </div>        
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="inputBox">
+                            <input placeholder="Phone Number" formControlName="phone_number" [ngClass]="{ 'is-invalid': submitted && f.phone_number.errors }">
+                            <div class="text-danger"  *ngIf="submitted && f.phone_number.errors">
+                                <div *ngIf="f.phone_number.errors.required">Phone Number is required</div>
+                                <!-- <div *ngIf="f.last_name.errors.minlength">First Name must be at least 3 characters</div> -->
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="inputBox">
+                            <input type="password" placeholder="Password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                            <div class="text-danger"  *ngIf="submitted && f.password.errors">
+                              <div *ngIf="f.password.errors.required">Password is required</div>
                           </div>
-                         </div>
-  
-                          <div class="col-md-6">
-                              <label>Phone Number</label>
-                                <input type="text" class="form-control" formControlName="phone_number" [ngClass]="{ 'is-invalid': submitted && f.phone_number.errors }">
-                                <div class="text-danger"  *ngIf="submitted && f.phone_number.errors">
-                                    <div *ngIf="f.phone_number.errors.required">Phone Number is required</div>
-                                </div>
-                          </div> <!-- form-group end.// -->
-                      </div> <!-- form-group end.// -->
-                      <div class="row">
-                          <div class="col-md-6">
-                              <label>Password</label>
-                                <input type="password" class="form-control" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
-                                <div class="text-danger"  *ngIf="submitted && f.password.errors">
-                                  <div *ngIf="f.password.errors.required">Password is required</div>
-                              </div>
-                          </div> <!-- form-group end.// -->
-                          <div class="col-md-6">
-                              <label>Confirm Password</label>
-                              <input  type="password" class="form-control" formControlName="confirmPassword" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }">
-                              <div class="text-danger"  *ngIf="submitted && f.confirmPassword.errors">
-                                  <div *ngIf="submitted && f.confirmPassword.errors">
-                                      <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
-                                      <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
-                                  </div>                            
-                              </div>
-                          </div> <!-- form-group end.// -->
-                      </div>
-                      <div class="form-group mt-3">
-                        <button type="submit"  [disabled]="loading" class="btn btn-primary btn-block">
-                            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-                            Signup  
-                        </button>
-                    </div>         
-                  </form>
-              </div><!-- card-body.// -->
-              <p class="text-center ">Have an account? <a routerLink="/login"><b>Log In</b></a></p>
-
-          </div> <!-- card .// -->
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="inputBox">
+                            <input  type="password" placeholder="Retype Password" formControlName="confirmPassword" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }">
+                            <div class="text-danger"  *ngIf="submitted && f.confirmPassword.errors">
+                                <div *ngIf="submitted && f.confirmPassword.errors">
+                                    <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                                    <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                                </div>                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" [disabled]="loading" class="btn btn-primary btn-block">
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                        Signup
+                    </button>
+                </div>
+            </form>
+            <div class="test-white mt-2rem">
+                Already have an account? <a routerLink="/login"><b>Login</b></a>
+            </div>
+        </div>
     </div>
-       
-    <!-- ============================ COMPONENT REGISTER  END.// ================================= -->
