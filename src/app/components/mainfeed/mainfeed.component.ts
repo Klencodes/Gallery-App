@@ -5,7 +5,6 @@ import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-mainfeed',
   templateUrl: './mainfeed.component.html',
-  styleUrls: ['./mainfeed.component.scss']
 })
 export class MainfeedComponent implements OnInit {
   images: Image[];
@@ -21,7 +20,6 @@ export class MainfeedComponent implements OnInit {
   getAllFeeds(){
     this.authService.getAllFeeds().subscribe((res: any) =>{
       this.images = res.results
-      console.log(this.images, 'THIS IS ALL FEEDS')
     })
   }
 

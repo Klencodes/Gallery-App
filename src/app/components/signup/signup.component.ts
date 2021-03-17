@@ -4,11 +4,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { MustMatch } from 'src/app/models/must-match';
 import { AuthService } from 'src/app/services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
@@ -21,6 +21,7 @@ export class SignupComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authService: AuthService,
+    private toast: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -52,7 +53,7 @@ export class SignupComponent implements OnInit {
      .subscribe({
       next: () => {
           this.loading = false;
-          // this.toastr.success('Registration successful, please login', 'Successful');
+          this.toast.success('Registration successful, please login', 'Successful');
           setTimeout(()=>{
               this.router.navigate(['/login']),
               3000
@@ -60,7 +61,7 @@ export class SignupComponent implements OnInit {
       },
       error: error => {
          console.log(error)
-          // this.toastr.error(error);
+          this.toast.error(error);
           this.loading = false;
       }
   });

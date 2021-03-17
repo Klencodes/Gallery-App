@@ -10,6 +10,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './services/jwt.interceptor';
 import { HeaderNavComponent } from './components/header-nav/header-nav.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ToastrModule } from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [
@@ -17,13 +20,21 @@ import { HeaderNavComponent } from './components/header-nav/header-nav.component
     LoginComponent,
     SignupComponent,
     MainfeedComponent,
-    HeaderNavComponent
+    HeaderNavComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot( 
+      ({  timeOut: 3000,
+          progressBar: true,
+          progressAnimation: 'increasing',
+          positionClass: 'toast-top-right'
+      })
+  )
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

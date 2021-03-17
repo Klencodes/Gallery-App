@@ -3,11 +3,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth.service';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
@@ -19,6 +20,8 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authService: AuthService,
+    private toast: ToastrService
+
     ) { }
 
   ngOnInit() {
@@ -46,11 +49,11 @@ export class LoginComponent implements OnInit {
           // get return url from query parameters or default to home page
           const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
           this.router.navigateByUrl(returnUrl);
-          // this.toastr.success('Login successful!', 'Successful')
+          this.toast.success('Login successful!', 'Successful')
         },
         error: error => {
           console.log(error)
-            // this.toastr.error(error);
+            this.toast.error(error);
             this.loading = false;
         }
     });

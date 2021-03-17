@@ -5,7 +5,6 @@ import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'header-nav',
   templateUrl: './header-nav.component.html',
-  styleUrls: ['./header-nav.component.scss']
 })
 export class HeaderNavComponent implements OnInit {
 
