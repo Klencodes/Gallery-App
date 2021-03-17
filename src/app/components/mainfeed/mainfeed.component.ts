@@ -20,7 +20,7 @@ export class MainfeedComponent implements OnInit {
   getAllFeeds(){
     this.authService.getAllFeeds().subscribe((res: any) =>{
       this.images = res.results;
-      console.log(this.images)
+      // console.log(this.images)
     })
   }
 
