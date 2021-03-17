@@ -52,8 +52,8 @@ export class LoginComponent implements OnInit {
           this.toast.success('Login successful!', 'Successful')
         },
         error: error => {
-          console.log(error)
-            this.toast.error(error);
+            //  console.log(error)
+            this.toast.error('Invalid email or password', 'Error');
             this.loading = false;
         }
     });
