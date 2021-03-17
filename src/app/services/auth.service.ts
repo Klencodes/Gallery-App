@@ -15,11 +15,9 @@ export class AuthService {
   private userSubject: BehaviorSubject<User>;
   public user: Observable<User>;
 
-  constructor(private router: Router, private http: HttpClient) {
-
+  constructor(
+    private router: Router, private httpClient: HttpClient) {
     this.userSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUser')));
-
-    // this.userSubject = new BehaviorSubject<User>(null);
     this.user = this.userSubject.asObservable();
   }
 
@@ -29,7 +27,7 @@ export class AuthService {
 
   login(email: string, password: string) {
     let url = environment.BASE_URL + environment.LOGIN;
-    return this.http.post<any>(url, { email, password }, { withCredentials: true })
+    return this.httpClient.post<any>(url, { email, password }, { withCredentials: true })
       .pipe(map((user) => {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
           localStorage.setItem('currentUser', JSON.stringify(user));
@@ -41,7 +39,7 @@ export class AuthService {
 
   logout() {
     let url = environment.BASE_URL + environment.LOGOUT;
-    this.http.post<any>(url, {}, { withCredentials: true }).subscribe();
+    this.httpClient.post<any>(url, {}, { withCredentials: true }).subscribe();
     // remove user from local storage and set current user to null
     localStorage.removeItem('currentUser');
     this.userSubject.next(null);
@@ -50,12 +48,12 @@ export class AuthService {
 
   signup(user: User) {
     let url = environment.BASE_URL + environment.SIGNUP;
-    return this.http.post(url, user);
+    return this.httpClient.post(url, user);
   }
 
   getAllFeeds() {
     let url = environment.BASE_URL + environment.MAINFEEDS;
-    return this.http.get(url)
+    return this.httpClient.get(url)
   }
 
 }
