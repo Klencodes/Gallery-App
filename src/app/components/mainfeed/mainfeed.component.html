@@ -1,22 +1,28 @@
 <header-nav></header-nav>
 <section class="section-name  my-4">
     <div class="container  bg-white">
-        <div class="row card-body">
+        <div class="row">
             <div class="col-md-12">
                 <div class="card-header">
                     <div class="page-title">List of Images</div>
                 </div>
             </div>
+            <!-- Display loading if the list is not loaded yet -->
+            <div class="col-md-12">
+                <div class="text-center" *ngIf="!images">
+                    <span class="text-success spinner-border spinner-border-lg align-center"></span>
+                </div>
+            </div>
+
             <div class="col-md-3 col-sm-6" *ngFor="let image of images">
                 <div class="product-grid4">
                     <div class="product-image4">
                         <img class="pic-1" [src]="image.image">
-
                         <!-- <span class="product-new-label">Shares {{image.num_of_shares}}</span>
                         <span class="product-discount-label">Likes {{image.num_of_likes}}</span> -->
                     </div>
                     <div class="product-content mb-3">
-                        <div class="title">Title: {{image.title | slice:0:15 | lowercase}}</div>
+                        <div class="title"> {{image.title | slice:0:15 | lowercase}}</div>
                         <!-- <div class="price">Comments {{image.num_of_comments}}</div> -->
                         <div class="d-flex flex-row justify-content-center">
                             <div class="like p-2 cursor"><span class="ml-1"><b>{{image.num_of_likes}}</b>
@@ -26,7 +32,7 @@
                             <div class="like p-2 cursor"><span class="ml-1"><b>{{image.num_of_shares}}</b>
                                     Shares</span></div>
                         </div>
-                    
+
                     </div>
                 </div>
             </div>
