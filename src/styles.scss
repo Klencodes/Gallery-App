@@ -191,6 +191,7 @@ a {
 }
 .product-grid4 .product-image4 a{display:block}
 .product-grid4 .product-image4 img{
+  cursor: pointer;
   width:100% !important; 
   height: 300px; 
   object-fit: cover;
@@ -254,4 +255,5 @@ a {
 .like{
   font-size: 13px;
   font-weight: 500;
+  cursor: pointer;
 }
