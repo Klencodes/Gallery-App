@@ -1,8 +1,8 @@
 export class Image {
     id: string;
     image: string;
-    num_of_comments?: string;
-    num_of_likes?: string;
-    num_of_shares?: string;
+    num_of_comments: number;
+    num_of_likes: number;
+    num_of_shares: number;
     title: string;
 }

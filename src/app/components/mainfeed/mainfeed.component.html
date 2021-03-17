@@ -11,15 +11,18 @@
                 <div class="product-grid4" >
                     <div class="product-image4">
                             <img class="pic-1" [src]="image.image">
-                        
+
+                        <span class="product-new-label">Shares {{image.num_of_shares}}</span>
                         <span class="product-discount-label">Likes {{image.num_of_likes}}</span>
                     </div>
-                    <div class="product-content">
+                    <div class="product-content mb-3">
                         <div class="title">Title: {{image.title |  slice:0:15 | lowercase}}</div>
+                        <div class="price">Comments {{image.num_of_comments}}</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>  
+
 <footer-nav class="mb-4"></footer-nav>
