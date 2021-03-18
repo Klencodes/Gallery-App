@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Image } from 'src/app/models/image';
+import { Feed } from 'src/app/models/feed';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './mainfeed.component.html',
 })
 export class MainfeedComponent implements OnInit {
-  images: Image[];
+  feeds: Feed[];
 
   constructor(
     private authService: AuthService
@@ -19,7 +19,7 @@ export class MainfeedComponent implements OnInit {
 
   getAllFeeds(){
     this.authService.getAllFeeds().subscribe((res: any) =>{
-      this.images = res.results;
+      this.feeds = res.results;
       // console.log(this.images)
     })
   }

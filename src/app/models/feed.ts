@@ -1,4 +1,4 @@
-export class Image {
+export class Feed {
     id: string;
     image: string;
     num_of_comments: number;

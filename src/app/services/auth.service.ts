@@ -17,7 +17,7 @@ export class AuthService {
 
   constructor(
     private router: Router, private httpClient: HttpClient) {
-    this.userSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUser')));
+    this.userSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('user-data')));
     this.user = this.userSubject.asObservable();
   }
 
@@ -30,7 +30,7 @@ export class AuthService {
     return this.httpClient.post<any>(url, { email, password }, { withCredentials: true })
       .pipe(map((user) => {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
-          localStorage.setItem('currentUser', JSON.stringify(user));
+          localStorage.setItem('user-data', JSON.stringify(user));
           this.userSubject.next(user);
           return user;
         })
@@ -41,7 +41,7 @@ export class AuthService {
     let url = environment.BASE_URL + environment.LOGOUT;
     this.httpClient.post<any>(url, {}, { withCredentials: true }).subscribe();
     // remove user from local storage and set current user to null
-    localStorage.removeItem('currentUser');
+    localStorage.removeItem('user-data');
     this.userSubject.next(null);
     this.router.navigate(['/login']);
   }

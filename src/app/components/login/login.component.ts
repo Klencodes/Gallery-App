@@ -12,8 +12,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  submitted: Boolean =false;
-  loading: Boolean =false;
+  submitted: Boolean = false;
+  loading: Boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     this.login();
-  // stop here if form is invalid
+  // stop here if loginForm is invalid
     if (this.loginForm.invalid) {
         return;
     }
@@ -49,11 +49,10 @@ export class LoginComponent implements OnInit {
           // get return url from query parameters or default to home page
           const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
           this.router.navigateByUrl(returnUrl);
-          this.toast.success('Logged In successfully', 'Successful')
+          this.toast.success('Logged In successfully', 'Successful');
         },
         error: error => {
-            //  console.log(error)
-            this.toast.error('Invalid email or password', 'Error');
+            this.toast.error(error, 'Error');
             this.loading = false;
         }
     });

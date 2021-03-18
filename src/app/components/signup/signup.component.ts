@@ -60,8 +60,7 @@ export class SignupComponent implements OnInit {
           })
       },
       error: error => {
-        //  console.log(error)
-          this.toast.error('Email Already Exist', 'Error');
+          this.toast.error(error, 'Error');
           this.loading = false;
       }
   });
