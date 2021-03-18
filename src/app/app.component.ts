@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+// import { SwUpdate } from '@angular/service-worker';
 import { User } from './models/user';
 import { AuthService } from './services/auth.service';
 
@@ -14,6 +15,7 @@ export class AppComponent {
   constructor(
       private authService: AuthService,
       private router: Router,
+    //   private swUpdate: SwUpdate
       ) {
       this.authService.user.subscribe(x => this.user = x);
   }
@@ -30,4 +32,17 @@ export class AppComponent {
           window.scrollTo(0, 0)
       });
   }
+
+//   reloadSwUpdate(){
+//     if (this.swUpdate.isEnabled) {
+
+//         this.swUpdate.available.subscribe(() => {
+
+//             if(confirm("New version of Service Worker is available. Load New Version?")) {
+//                 window.location.reload();
+//             }
+//         });
+//     }        
+//   }
+
 }
