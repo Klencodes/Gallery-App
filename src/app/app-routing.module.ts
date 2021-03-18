@@ -6,9 +6,21 @@ import { SignupComponent } from './components/signup/signup.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: MainfeedComponent, canActivate: [AuthGuard] },
-  { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
+  { path: '', component: MainfeedComponent,
+    data:{
+      title: 'Feeds'
+    }, canActivate: [AuthGuard] 
+  },
+  { path: 'login', component: LoginComponent ,
+      data:{
+        title: 'Login'
+      }
+  },
+  { path: 'signup', component: SignupComponent,
+    data:{
+      title: 'Signup'
+    }
+  },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 

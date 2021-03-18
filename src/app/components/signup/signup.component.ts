@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { MustMatch } from 'src/app/models/must-match';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from 'src/app/services/index';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -32,7 +32,7 @@ export class SignupComponent implements OnInit {
       last_name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone_number: ['', Validators.required],
-  },  {
+  },{
     validator: MustMatch('password', 'confirmPassword')
   });
 }

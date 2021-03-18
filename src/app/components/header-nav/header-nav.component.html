@@ -12,14 +12,11 @@
 						<a href="#" data-toggle="dropdown" class="dropdown-toggle" data-offset="20,10"
 							aria-expanded="false">
 							<div class="icon icon-sm rounded-circle border ">
+								<!-- {{user.first_name | slice: 0:1 | uppercase}} {{user.last_name | slice: 0:1 | uppercase}}  -->
 								<i class="fa fa-user"></i>
 							</div>
 							<span class="sr-only">Profile actions</span>
 						</a>
-						<h6>
-							<!-- <small class="text-muted">Hi User</small> -->
-						</h6>
-
 						<div class="dropdown-menu dropdown-menu-right">
 							<a class="dropdown-item" (click)="logout()">Log out</a>
 						</div> 
