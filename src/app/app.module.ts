@@ -8,12 +8,11 @@ import { SignupComponent } from './components/signup/signup.component';
 import { MainfeedComponent } from './components/mainfeed/mainfeed.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { JwtInterceptor } from './services/jwt.interceptor';
+import { AuthInterceptor, ErrorInterceptor } from './services/index';
 import { HeaderNavComponent } from './components/header-nav/header-nav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ErrorInterceptor } from './services/error.interceptor';
 
 
 
@@ -41,7 +40,7 @@ import { ErrorInterceptor } from './services/error.interceptor';
   )
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
   ],
