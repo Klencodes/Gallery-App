@@ -53,14 +53,14 @@ export class SignupComponent implements OnInit {
      .subscribe({
       next: () => {
           this.loading = false;
-          this.toast.success('Registration successful, please login', 'Successful');
+          this.toast.success('Registration successful, please login', 'Request Successful');
           setTimeout(()=>{
               this.router.navigate(['/login']),
               3000
           })
       },
       error: error => {
-          this.toast.error(error, 'Error');
+          this.toast.error(error, 'Request Failed');
           this.loading = false;
       }
   });

@@ -49,10 +49,10 @@ export class LoginComponent implements OnInit {
           // get return url from query parameters or default to home page
           const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
           this.router.navigateByUrl(returnUrl);
-          this.toast.success('Logged In successfully', 'Successful');
+          this.toast.success('You have logged in successfully', 'Request Successful');
         },
         error: error => {
-            this.toast.error(error, 'Error');
+            this.toast.error(error, 'Request Failed');
             this.loading = false;
         }
     });
