@@ -8,6 +8,7 @@ export class FooterComponent implements OnInit {
 
   constructor() { }
   dateCopyright = new Date().getFullYear();
+  appTitle = 'Picture Gallery'
 
   ngOnInit(): void {
   }

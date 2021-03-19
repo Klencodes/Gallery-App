@@ -11,8 +11,7 @@ import { AuthService } from 'src/app/services/index';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit{
-
-  appTitle: string = 'Pentium Tech';
+  appTitle: string = 'Picture Gallery'
 
   constructor(
     private router: Router,
