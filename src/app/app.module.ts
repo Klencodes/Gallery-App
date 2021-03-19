@@ -8,7 +8,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { MainfeedComponent } from './components/mainfeed/mainfeed.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthInterceptor, ErrorInterceptor } from './services/index';
+import { AuthInterceptor, ErrorInterceptor } from './models/index';
 import { HeaderNavComponent } from './components/header-nav/header-nav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ToastrModule } from 'ngx-toastr';

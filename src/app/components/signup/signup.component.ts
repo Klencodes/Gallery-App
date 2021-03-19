@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
-import { MustMatch } from 'src/app/models/must-match';
+import { MustMatch } from 'src/app/models/index';
 import { AuthService } from 'src/app/services/index';
 import { ToastrService } from 'ngx-toastr';
 

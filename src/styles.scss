@@ -11,7 +11,10 @@ a:hover{
   text-decoration: none !important;
   color: #16a04b !important;
 }
-
+.img-logo{
+  width: 200px;
+  margin-bottom: 5px;
+}
 .auth-bg {
   background: url('assets/auth2.jpg');
   background-repeat: no-repeat;
@@ -165,7 +168,10 @@ article{
     margin-left: 20px;
     margin-right: 20px;
   }
-
+  .img-logo{
+    width: 150px;
+    margin-bottom: 5px;
+  }
   .box {
     position: absolute;
     top: 50%;
@@ -220,28 +226,20 @@ article{
 .product-grid4 .title{
   font-size:15px;
   font-weight:600;
-  text-transform:capitalize;
+  text-transform: capitalize;
   margin:0 0 7px;
   transition:all .3s ease 0s
 }
 .product-grid4 .title a{color:#222}
 // .product-grid4 .title a:hover{color:#16a085}
-@media only screen and (max-width:990px){.product-grid4{margin-bottom:40px}
+@media only screen and (max-width:990px){
+  .product-grid4{
+    margin-bottom:40px
+  }
 }
-.product-grid .price{
-  color:#333;
-  font-size:17px;
- font-weight:700;
- letter-spacing:.6px;
- margin-bottom:8px;
- text-align:center;
- transition:all .3s
-}
-
 
 .page-title{
   font-size: 1.75rem;
-  font-weight: 500;
   color: #343a40;
 }
 
@@ -259,6 +257,5 @@ article{
 }
 .like{
   font-size: 13px;
-  font-weight: 500;
   cursor: pointer;
 }
